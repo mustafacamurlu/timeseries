@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: timeseries
+
+influxdb:
+  url: http://127.0.0.1:8086
+  token: ""
+  org: optimove_org
+  bucket: optimove_bucket
+  username: optimoveuser
+  password: optimovepassword
+
+server:
+  port: 8085
