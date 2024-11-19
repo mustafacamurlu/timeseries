@@ -36,6 +36,20 @@ public class TimeseriesController {
         return timeSeriesService.queryData();
     }
 
+    @GetMapping("/sleep")
+    public String sleepEndpoint() {
+        String hostname = System.getenv("HOSTNAME");
+        try {
+            // Sleep for 3 seconds
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return "Error: Interrupted while sleeping";
+        }
+        System.out.println("Slept for 3 seconds" + hostname);
+        return "Slept for 3 seconds" + hostname;
+    }
+
     @PostMapping
     public ResponseEntity<String> writeIoTData(@Valid @RequestBody TimeseriesDataPayload payload) {
         try {
